@@ -1,0 +1,109 @@
+<div class="first-container">
+    <div class="content">
+        <div class="header">
+            <img class="logo-hackernews" [src]="'assets/images/homepages/hackernews-logo.png'" alt="">
+            <h4>Hacker News</h4> 
+        </div>
+        <div class="top-content"
+        fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div class="card-container-top"
+            fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="80%"
+            *ngFor="let data of articleList$.slice(0,4); let i = index">
+                <mat-card class="card-content">
+                  <mat-card-header>
+                    <mat-card-title><h1>{{data?.title}}</h1></mat-card-title>
+                    <mat-card-subtitle><h3>{{data?.score}} Points</h3><label>|</label>
+                      <span>by. {{data?.by}}</span></mat-card-subtitle>
+                  </mat-card-header>
+                  <hr class="divider">
+                  <mat-card-actions class="card-actions-container" align="end">
+                      <mat-card-subtitle>
+                        <div class="clock">
+                          <img [src]="'assets/images/homepages/clock.png'">
+                          <h3>{{ data?.timeConverter }}</h3>
+                          <h4 *ngIf="data.score !== undefined && data.score > 200">Trending</h4>
+                        </div>
+                      </mat-card-subtitle>
+                    <div class="right-content">
+                      <button mat-button class="comment-button" (click)="openDetail(i)">
+                        <div class="comment-icon">
+                          <img class="comment-logo" [src]="'assets/images/homepages/comment-logo.png'">
+                          <h5>{{ (data.kids && data.kids.length) ? data.kids.length : 0 }} Comment</h5>
+                          <img class="arrow-logo" [src]="'assets/images/homepages/arrow-logo.png'">
+                        </div>
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <div class="mid-content"
+        fxLayout="row wrap" fxLayoutGap="grid-list">
+            <div class="card-container-mid"
+            fxFlex="82%" fxFlex.xs="100%" fxFlex.sm="90%"
+            *ngFor="let data of articleList$.slice(midIndex, lastIndex); let i = index">
+                 <mat-card class="card-content">
+                  <mat-card-header>
+                    <mat-card-title><h1>{{data?.title}}</h1></mat-card-title>
+                    <mat-card-subtitle>
+                      <div class="clock">
+                        <h3>{{data?.score}} Points</h3>
+                        <label>|</label>
+                        <span>by. {{data?.by}}</span>
+                        <label>|</label>
+                        <img [src]="'assets/images/homepages/clock.png'">
+                        <h3>{{ data?.timeConverter }}</h3>
+                        <h4 *ngIf="data.score !== undefined && data.score > 200">Trending</h4>
+                      </div> 
+                    </mat-card-subtitle>
+                    <div class="right-content">
+                      <button mat-button class="comment-button" (click)="openDetail(i + midIndex)">
+                        <div class="comment-icon">
+                          <img class="comment-logo" [src]="'assets/images/homepages/comment-logo.png'">
+                          <h5>{{ (data.kids && data.kids.length) ? data.kids.length : 0 }} Comment</h5>
+                          <img class="arrow-logo" [src]="'assets/images/homepages/arrow-logo.png'">
+                        </div>
+                      </button>
+                    </div>
+                  </mat-card-header>
+                </mat-card>
+            </div>
+        </div>
+        <div class="top-content"
+        fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div class="card-container-top"
+            fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="80%"
+            *ngFor="let data of articleList$.slice(lastIndex); let i = index">
+              <mat-card class="card-content">
+                <mat-card-header>
+                  <mat-card-title><h1>{{data?.title}}</h1></mat-card-title>
+                  <mat-card-subtitle><h3>{{data?.score}} Points</h3><label>|</label>
+                    <span>by. {{data?.by}}</span></mat-card-subtitle>
+                </mat-card-header>
+                <hr class="divider">
+                <mat-card-actions class="card-actions-container" align="end">
+                  <div class="left-content">
+                    <mat-card-subtitle>
+                      <div class="clock">
+                        <img [src]="'assets/images/homepages/clock.png'">
+                        <h3>{{ data?.timeConverter }}</h3>
+                        <h4 *ngIf="data.score !== undefined && data.score > 200">Trending</h4>
+                      </div>
+                    </mat-card-subtitle>
+                  </div>
+                  <div class="right-content">
+                    <button mat-button class="comment-button" (click)="openDetail(i+lastIndex)">
+                      <div class="comment-icon">
+                        <img class="comment-logo" [src]="'assets/images/homepages/comment-logo.png'">
+                        <h5>{{ (data.kids && data.kids.length) ? data.kids.length : 0 }} Comment</h5>
+                        <img class="arrow-logo" [src]="'assets/images/homepages/arrow-logo.png'">
+                      </div>
+                    </button>
+                  </div>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+        </div>
+        <h5></h5>
+    </div>
+</div>

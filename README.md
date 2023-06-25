@@ -1,6 +1,26 @@
 # RifqiProjectAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
+This is the project for Programmer Support assignment. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8., it will come for 2 choices, first access with the internet conection or offline mode. For using the offline mode you need to download the resources in the on-board page, after the download completed you can acces the project withoutr internet connection.
+
+## Installation
+
+Make sure you are using the nvm version 16.14.1
+
+```bash
+  nvm use 16.14.1
+```
+Move to folder project
+
+```bash
+  cd filename/project-name
+```   
+
+Run the application using npm start or ng serve
+
+```bash
+  npm start or ng serve --port (4200 or other available port)
+```  
+
 
 ## Development server
 

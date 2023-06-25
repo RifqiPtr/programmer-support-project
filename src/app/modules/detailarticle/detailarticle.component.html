@@ -1,0 +1,38 @@
+<div class="close">
+    <img 
+    (click)="close()"
+    [src]="'assets/images/detailarticle/close-logo.png'">
+</div>
+<div class="detail-component">
+    <div class="header-detail">
+        <h1>{{articleDetail.title}}</h1>
+        <div class="clock">
+            <div class="left-content">
+              <span>{{articleDetail.score}} Points</span>
+              <label>|</label>
+              <span>by.{{articleDetail.by}}</span>
+              <label>|</label>
+              <img [src]="'assets/images/homepages/clock.png'">
+              <span>{{articleDetail.timeConverter}}</span>
+            </div>
+            <div class="right-content">
+                <img class="comment-logo" [src]="'assets/images/detailarticle/comment-logo.png'">
+                <h4>{{ (articleDetail.kids && articleDetail.kids.length) ? articleDetail.kids.length : 0 }} Comment</h4>
+            </div>
+          </div>
+        <hr class="divider">
+        <div class="comment-container" *ngFor="let comment of detailArticles$">
+            <div class="card-content">
+                <mat-card>
+                    <mat-card-header>
+                    <mat-card-title><h1>{{comment.by}}</h1></mat-card-title>
+                    <mat-card-subtitle><h3>{{comment.text}}</h3></mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+            </div>
+            <div class="comment-time">
+                <h2>{{comment.timeConverter}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

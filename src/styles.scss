@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-card {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+html,
+body {
+  height: 100%;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  background-color: #F5F7FC;
+}
+
+.mat-mdc-dialog-container {
+  background-color: white !important;
+}
+
+.mdc-dialog__surface {
+  background-color: white !important;
+}
+
+.mat-mdc-card-header {
+  padding: 0 !important;
+}
