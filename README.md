@@ -10,21 +10,29 @@ Clone this project
   git clone https://github.com/RifqiPtr/programmer-support-project.git
 ```
 
+Move to folder project
+
+```bash
+  cd filename/project-name
+``` 
+
 Make sure you are using the nvm version 16.14.1
 
 ```bash
   nvm use 16.14.1
 ```
-Move to folder project
+
+Install the project
 
 ```bash
-  cd filename/project-name
-```   
+  npm install
+```
 
-Run the application using npm start or ng serve
+Run the project using npm start or ng serve
 
 ```bash
-  npm start or ng serve --port (4200 or other available port)
+  npm start
+  ng serve --port (4200 or other available port)
 ```  
 
 
