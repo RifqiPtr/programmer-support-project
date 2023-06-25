@@ -1,8 +1,14 @@
-# RifqiProjectAngular
+# programmer-support-project
 
-This is the project for Programmer Support assignment. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8., it will come for 2 choices, first access with the internet conection or offline mode. For using the offline mode you need to download the resources in the on-board page, after the download completed you can acces the project withoutr internet connection.
+This is the project for Programmer Support assignment by Rifqi Putra. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8., it will come for 2 choices, first access with the internet conection or offline mode. For using the offline mode you need to download the resources in the on-board page, after the download completed you can acces the project withoutr internet connection.
 
 ## Installation
+
+Clone this project
+
+```bash
+  git clone https://github.com/RifqiPtr/programmer-support-project.git
+```
 
 Make sure you are using the nvm version 16.14.1
 
