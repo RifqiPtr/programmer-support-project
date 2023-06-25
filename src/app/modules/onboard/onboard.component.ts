@@ -31,7 +31,7 @@ export class OnboardComponent {
         enterAnimationDuration:'150ms',
         exitAnimationDuration:'150ms',
         disableClose: true,
-        data: 'Please wait, we try to download all Article for offline mode.'
+        data: 'Do not leave or refresh this page, we try to download all article for offline mode.'
       });
       await this.dataService.loadDataArticle();
       await this.dataService.loadDetailArticle();

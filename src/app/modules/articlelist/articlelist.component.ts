@@ -54,7 +54,7 @@ export class ArticlelistComponent implements OnInit{
           enterAnimationDuration:'150ms',
           exitAnimationDuration:'150ms',
           disableClose: true,
-          data: 'Please wait, we try to get all article for you.'
+          data: 'Trying to get the list article for you. Do not refresh or leave this page.'
         });
 
         this.articleService.fetchAllArticle().pipe(
