@@ -4,31 +4,31 @@ This is the project for Programmer Support assignment by Rifqi Putra. This proje
 
 ## Installation
 
-Clone this project
+1. Clone this project
 
 ```bash
   git clone https://github.com/RifqiPtr/programmer-support-project.git
 ```
 
-Move to folder project
+2. Move to folder project
 
 ```bash
   cd filename/project-name
 ``` 
 
-Make sure you are using the nvm version 16.14.1
+3. Make sure you are using the nvm version 16.14.1
 
 ```bash
   nvm use 16.14.1
 ```
 
-Install the project
+4. Install the project
 
 ```bash
   npm install
 ```
 
-Run the project using npm start or ng serve
+5. Run the project using npm start or ng serve
 
 ```bash
   npm start
