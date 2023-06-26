@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { LoadingpageComponent } from '../loadingpage/loadingpage.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-onboard',
   standalone: true,
+  providers: [UiService],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -21,21 +22,14 @@ export class OnboardComponent {
   constructor(
     private dataService: DataService,
     private router: Router,
-    private matDialog: MatDialog){}
+    private uiService: UiService){}
 
   async download(){
     try {
-      this.matDialog.open(LoadingpageComponent, {
-        minWidth:'400px',
-        height:'300px',
-        enterAnimationDuration:'150ms',
-        exitAnimationDuration:'150ms',
-        disableClose: true,
-        data: 'Do not leave or refresh this page, we try to download all article for offline mode.'
-      });
+      this.uiService.loadingOfflineMode();
       await this.dataService.loadDataArticle();
       await this.dataService.loadDetailArticle();
-      this.matDialog.closeAll();
+      this.uiService.closeAllDialog();
       this.router.navigate(['/home']);
     } catch (error) {
       console.error('Error:', error); 

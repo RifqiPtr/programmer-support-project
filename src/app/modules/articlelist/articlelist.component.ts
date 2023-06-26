@@ -7,16 +7,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DataService } from 'src/app/services/data.service';
 import {MatButtonModule} from '@angular/material/button';
 import { ArticleList } from 'src/app/model/articlelist.model';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ArticleService } from 'src/app/services/article.service';
 import { catchError } from 'rxjs';
-import { AlertComponent } from '../alert/alert.component';
-import { LoadingpageComponent } from '../loadingpage/loadingpage.component';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-articlelist',
   standalone: true,
+  providers: [UiService],
   imports: [
     CommonModule,
     DetailarticleComponent,
@@ -39,7 +39,7 @@ export class ArticlelistComponent implements OnInit{
   constructor(
     public dataService: DataService,
     private articleService: ArticleService,
-    private matDialog: MatDialog
+    private uiService: UiService
     ){}
 
   async ngOnInit(){
@@ -48,21 +48,11 @@ export class ArticlelistComponent implements OnInit{
     if (navigator.onLine){
       if(!dataArticleList){
         
-        this.matDialog.open(LoadingpageComponent, {
-          minWidth:'400px',
-          height:'300px',
-          enterAnimationDuration:'150ms',
-          exitAnimationDuration:'150ms',
-          disableClose: true,
-          data: 'Trying to get the list article for you. Do not refresh or leave this page.'
-        });
+        this.uiService.loadingOnlineMode();
 
         this.articleService.fetchAllArticle().pipe(
           catchError(() => {
-            this.matDialog.open(AlertComponent, {
-              data: 'Something went wrong when we try to get the Article.',
-              disableClose: true
-            });
+            this.uiService.errorFetchAllArticle();
             return [];
           })
         ).subscribe((result: ArticleList[]) => {
@@ -72,7 +62,7 @@ export class ArticlelistComponent implements OnInit{
           });
 
           this.articleList$ = this.articleList$.concat(result),
-          this.matDialog.closeAll();
+          this.uiService.closeAllDialog();
 
         });
 
@@ -86,14 +76,7 @@ export class ArticlelistComponent implements OnInit{
 
   openDetail(index: number) {
     const selectedArticle = this.articleList$[index];
-    this.matDialog.open(DetailarticleComponent,{
-      width:'60%',
-      height:'80%',
-      enterAnimationDuration:'150ms',
-      exitAnimationDuration:'150ms',
-      disableClose: true,
-      data: selectedArticle
-    })
+    this.uiService.openDetailArticle(selectedArticle);
   }
 }
 
