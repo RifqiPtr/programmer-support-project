@@ -10,9 +10,7 @@ import { OnboardComponent } from './modules/onboard/onboard.component';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
-    ArticlelistComponent,
-    OnboardComponent
+    RouterModule
   ],
   styleUrls: ['./app.component.scss']
 })

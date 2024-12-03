@@ -19,6 +19,10 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./onboard.component.scss']
 })
 export class OnboardComponent {
+  notchText: string[] = Array.from('Project-Angular-1');
+  infoProject: string = 'Hi, this is the project based on Angular.';
+  detailProject: string = 'There is two different option to Access the website, click the Online Button to Access the Website with Internet, or Offline Button to Access the Website without Internet.'
+
   constructor(
     private dataService: DataService,
     private router: Router,

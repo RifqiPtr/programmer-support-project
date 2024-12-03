@@ -19,7 +19,6 @@ import { UiService } from 'src/app/services/ui.service';
   providers: [UiService],
   imports: [
     CommonModule,
-    DetailarticleComponent,
     MatCardModule,
     MatGridListModule,
     FlexLayoutModule,

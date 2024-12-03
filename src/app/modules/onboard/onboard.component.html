@@ -1,4 +1,4 @@
-<div class="background" [style.background-image]="'url(' + 'assets/images/onboard/on-board-wallpaper.png' + ')'">
+<!-- <div class="background">
     <div>
         <h1>Sorry, but you need to</h1>
         <button mat-flat-button
@@ -7,5 +7,27 @@
         <h3>the article for offline mode, or</h3>
         <button mat-flat-button
         (click)="home()">Access the Web.</button>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="top-notch">
+        <h1 *ngFor="let notchText of notchText" class="typing-animation">
+            {{notchText}}
+        </h1>
+    </div>
+    <div class="content">
+        <div class="window-opt">
+            <h1>
+                {{infoProject}}
+            </h1>
+            <h2>
+                {{detailProject}}
+            </h2>
+            <button mat-flat-button
+            (click)="home()">Online Mode</button>
+            <button mat-flat-button
+            (click)="download()">Offline Mode</button>
+        </div>
     </div>
 </div>
